@@ -22,6 +22,11 @@ public class TotalBillCalculator implements RestaurantBill{
             totalBill += x.getPrice();
         }
 
+        if(itemsNumber > 20)
+        {
+            throw new RestaurantBillException("ERRORE: Non possono esserci più di 20 elementi.");
+        }
+        
         return totalBill;
 
     }
