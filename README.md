@@ -1,5 +1,7 @@
-# A2-TOS-CI
+# Mariano Sciacco - 1142498
+
 Assignment #2 - Tecnologie Open Source, UniPD Informatica (Mariano Sciacco)
+
 
 ### Status della Build
 

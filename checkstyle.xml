@@ -6,8 +6,6 @@
 
 <module name="Checker">
 
-	<!-- <property name="severity" value="warning" />-->
-
 	<!-- Modulo padre -->
 	<module name="TreeWalker">
 	
