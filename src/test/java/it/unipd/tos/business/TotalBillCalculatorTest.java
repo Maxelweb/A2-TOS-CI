@@ -92,6 +92,36 @@ public class TotalBillCalculatorTest {
             e.getMessage();
         }
     }
+    
 
+    /*  Test #4
+     *  Se il costo complessivo è superiore a 100 euro, sconto del 5%.
+     * 
+     */    
+
+    @Test
+    public void DiscountOf5PercentWith100PlusEuroOrder_Test() throws RestaurantBillException 
+    {
+
+        List<MenuItem> itemsOrdered = new ArrayList<MenuItem>();
+
+        for(int i = 1; i <= 8; i++)
+            itemsOrdered.add(new MenuItem("Bucatini alla Salentina "+ i , MenuItem.items.PRIMO, 10.00));
+        itemsOrdered.add(new MenuItem("Pennette al pomodoro" , MenuItem.items.PRIMO, 5.50));
+        itemsOrdered.add(new MenuItem("Pizza ai Frutti di Mare", MenuItem.items.PIZZA, 9.00));
+        itemsOrdered.add(new MenuItem("Pizza con Tonno e Cipolla", MenuItem.items.PIZZA, 7.00));
+        itemsOrdered.add(new MenuItem("Pizza con Mozzarella di Bufala" , MenuItem.items.PIZZA, 6.50));
+
+        TotalBillCalculator testBill = new TotalBillCalculator();
+
+        try 
+        {
+            assertEquals(102.6, testBill.getOrderPrice(itemsOrdered), 0.0);
+        } 
+        catch (RestaurantBillException e) 
+        {
+            e.getMessage();
+        }
+    }
 
 }
