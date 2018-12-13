@@ -60,5 +60,38 @@ public class TotalBillCalculatorTest {
         TotalBillCalculator testBill = new TotalBillCalculator();
         testBill.getOrderPrice(itemsOrdered);
     }
+    
+    
+    
+    /*  Test #3
+     *  Se il numero delle pizze è maggiore di 10, sconto la meno costosa.
+     * 
+     */
+
+    @Test
+    public void DiscountLessExpensivePizzaWith10PlusPizzaOrder_Test() throws RestaurantBillException 
+    {
+
+        List<MenuItem> itemsOrdered = new ArrayList<MenuItem>();
+
+        for(int i = 1; i <= 9; i++)
+            itemsOrdered.add(new MenuItem("Pizza Margherita "+ i , MenuItem.items.PIZZA, 5.00));
+        itemsOrdered.add(new MenuItem("Bucatini al Pomodoro" , MenuItem.items.PRIMO, 8.50));
+        itemsOrdered.add(new MenuItem("Spaghetti allo scoglio ", MenuItem.items.PRIMO, 9.50));
+        itemsOrdered.add(new MenuItem("Pizza marinara" , MenuItem.items.PIZZA, 4.00));
+        itemsOrdered.add(new MenuItem("Pizza ai Funghi" , MenuItem.items.PIZZA, 8.00));
+
+        TotalBillCalculator testBill = new TotalBillCalculator();
+
+        try 
+        {
+            assertEquals(71.0, testBill.getOrderPrice(itemsOrdered), 0.0);
+        } 
+        catch (RestaurantBillException e) 
+        {
+            e.getMessage();
+        }
+    }
+
 
 }
